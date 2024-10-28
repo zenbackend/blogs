@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "ZenBackend Blogs",
-    "base_url": "https://bookworm-light-astro.vercel.app",
+    "base_url": "https://blogs.jeldiserve.site",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
@@ -27,8 +27,8 @@
   },
 
   "contactinfo": {
-    "address": "355 S Grand Ave <br/> Los Angeles, CA 90071",
-    "email": "info@bookworm.org",
-    "phone": "+800 567 1234"
+    "address": "Bangalore",
+    "email": "jeldiserve@gmail.com",
+    "phone": "+"
   }
 }
