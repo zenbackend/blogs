@@ -22,7 +22,7 @@ const { title, description, authors, categories, image, date, tags } =
     <article class="row justify-center">
       <div class="md:col-10 text-center">
         <h1 set:html={markdownify(title)} class="h2" />
-        <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
+        <ul class="mt-4 flex flex-wrap items-center justify-center text-text space-y-2">
           <li class="mx-3">
             {
               allAuthors
@@ -91,7 +91,7 @@ const { title, description, authors, categories, image, date, tags } =
         }
       </div>
 
-      <div class="md:col-10">
+      <div class="md:col-10 mt-10">
         <div class="content mb-16 text-left">
           <Content />
         </div>

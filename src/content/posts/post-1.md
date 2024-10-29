@@ -3,7 +3,7 @@ title: "API Versioning in real life"
 description: "meta description"
 date: 2024-04-01T05:00:00Z
 image: "/images/posts/01.jpg"
-categories: ["Backend"]
+categories: ["Backend","Frontend","Security","API"]
 authors: ["Durga Chikkala"]
 tags: ["backend", "api"]
 draft: false
