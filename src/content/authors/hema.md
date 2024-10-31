@@ -1,6 +1,6 @@
 ---
 title: Hema Chandu Medipudi
-image: /images/authors/john-doe.jpg
+image: /images/authors/girl3.jpg
 description: I am the co-founder of zenBackend
 social:
   facebook: https://www.facebook.com/
