@@ -6,11 +6,6 @@ import { IoSearch } from "react-icons/io5";
 export interface ChildNavigationLink {
   name: string;
   url: string;
-}
-
-export interface NavigationLink {
-  name: string;
-  url: string;
   hasChildren?: boolean;
   children?: ChildNavigationLink[];
 }
@@ -18,83 +13,111 @@ export interface NavigationLink {
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class="header pt-6">
-  <nav class="navbar container">
-    <!-- logo -->
-    <div class="order-0">
+<header class="bg-white text-gray-800 py-4 fixed top-0 w-full z-50 border-b border-gray-200">
+  <nav class="container mx-auto flex items-center justify-between px-4">
+    <!-- Logo -->
+    <div class="flex items-center space-x-4">
       <Logo />
     </div>
-    <!-- navbar toggler -->
-    <input id="nav-toggle" type="checkbox" class="hidden" />
-    <label
-      id="show-button"
-      for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center text-black md:order-1 md:hidden"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
-    </label>
-    <label
-      id="hide-button"
-      for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center text-black md:order-1"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
-      </svg>
-    </label>
-    <!-- /navbar toggler -->
 
-    <ul
-      id="nav-menu"
-      class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto"
-    >
-      {
-        main.map((menu) => (
-          <>
-            {menu.hasChildren ? (
-              <li class="nav-item nav-dropdown group relative cursor-pointer">
-                <span class="nav-link inline-flex items-center">
-                  {menu.name}
-                  <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  </svg>
-                </span>
-                <ul class="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
-                  {menu.children?.map((child) => (
-                    <li class="nav-dropdown-item">
-                      <a href={child.url} class="nav-dropdown-link">
-                        {child.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li class="nav-item">
-                <a href={menu.url} class="nav-link block">
-                  {menu.name}
-                </a>
-              </li>
-            )}
-          </>
-        ))
-      }
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex items-center space-x-8">
+      {main.map((menu) => (
+        <li class="relative group">
+          {menu.hasChildren ? (
+            <>
+              <span class="cursor-pointer inline-flex items-center hover:text-blue-600">
+                {menu.name}
+                <svg class="w-4 h-4 ml-1" fill="#007BFF" viewBox="0 0 20 20">
+                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                </svg>
+              </span>
+              <ul class="absolute left-0 mt-2 w-40 hidden group-hover:block bg-white text-gray-800 rounded-md shadow-lg border border-gray-200">
+                {menu.children?.map((child) => (
+                  <li>
+                    <a href={child.url} class="block px-4 py-2 hover:bg-gray-100">
+                      {child.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <a href={menu.url} class="hover:text-blue-600">
+              {menu.name}
+            </a>
+          )}
+        </li>
+      ))}
     </ul>
-    <div class="order-1 ml-auto flex md:order-2 md:ml-0">
-      <a
-        class="mr-4 inline-block cursor-pointer p-2 text-xl text-dark transition hover:text-primary md:mr-0"
-        href="/search"
-        title="seach"
-        aria-label="seach"
-      >
+
+    <!-- Search Icon -->
+    <div class="hidden md:flex items-center space-x-4">
+      <a href="/search" class="text-xl text-gray-800 hover:text-blue-600">
         <IoSearch />
       </a>
     </div>
+
+    <!-- Mobile Toggle Button -->
+    <div class="md:hidden">
+      <button id="nav-toggle" class="focus:outline-none">
+        <svg class="h-6 w-6 text-gray-800 transition-transform duration-200 ease-in-out transform hover:scale-110 hover:text-gray-600" fill="none" viewBox="0 0 24 24">
+          <path class="stroke-current" stroke="currentColor" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div id="nav-menu" class="hidden flex-col space-y-4 px-4 py-6 bg-white text-gray-800 md:hidden rounded-lg shadow-lg transition-transform transform opacity-0 scale-95 duration-300 ease-in-out">
+    <ul class="space-y-4">
+      {main.map((menu) => (
+        <li>
+          {menu.hasChildren ? (
+            <>
+              <span class="cursor-pointer inline-flex items-center hover:text-blue-600">
+                {menu.name}
+                <svg class="w-4 h-4 ml-1" fill="#007BFF" viewBox="0 0 20 20">
+                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                </svg>
+              </span>
+              <ul class="pl-4 mt-2 space-y-2">
+                {menu.children?.map((child) => (
+                  <li>
+                    <a href={child.url} class="block hover:text-blue-600">
+                      {child.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <a href={menu.url} class="block hover:text-blue-600">
+              {menu.name}
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
+    <div class="mt-4">
+      <a href="/search" class="text-xl text-gray-800 hover:text-blue-600">
+        <IoSearch />
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      navToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("hidden");
+        navMenu.classList.toggle("opacity-0");
+        navMenu.classList.toggle("scale-95");
+        navMenu.classList.toggle("scale-100");
+        navMenu.classList.toggle("opacity-100");
+      });
+    });
+  </script>
 </header>
