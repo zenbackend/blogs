@@ -23,7 +23,7 @@
     
     <label class="block mb-2">
         <span class="text-gray-700">Long Description</span>
-        <textarea name="long-description" class="mt-1 block w-full px-4 py-2 border rounded-md" required></textarea>
+        <textarea name="longdescription" class="mt-1 block w-full px-4 py-2 border rounded-md" required></textarea>
       </label>
 
     <h3 class="text-lg font-semibold mt-4 mb-2">Social Links</h3>
@@ -57,7 +57,7 @@ const token = import.meta.env.GITHUB_TOKEN;
         title: event.target.title.value,
         image: event.target.image.value,
         description: event.target.description.value,
-        longdescription: event.target.long-description.value,
+        longdescription: event.target.longdescription.value,
         social: {
           facebook: event.target.facebook.value,
           twitter: event.target.twitter.value,
