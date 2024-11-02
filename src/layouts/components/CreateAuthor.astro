@@ -49,10 +49,12 @@
   <script>
     const repoOwner = "zenBackend";
 const repoName = "blogs";
-const token = import.meta.env.GITHUB_TOKEN;
-console.log(token)
+const token = import.meta.env.VITE_GITHUB_TOKEN;
+alert(token);
     document.querySelector("#author-form").addEventListener("submit", async (event) => {
       event.preventDefault();
+      alert(token)
+
   
       const formData = {
         title: event.target.title.value,
@@ -78,7 +80,7 @@ console.log(token)
 ---
   
   ${formData.longdescription}
-      `;
+      `
   
       const base64Content = btoa(content);
       const filePath = `src/content/authors/${formData.title.toLowerCase().replace(/\s+/g, "-")}.md`;
