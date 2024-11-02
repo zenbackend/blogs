@@ -15,37 +15,37 @@ const githubToken = import.meta.env.PUBLIC_GITHUB_TOKEN;
     <div class="grid grid-cols-3 gap-4 mt-2" id="image-options">
       <!-- Add each image manually here as a selectable radio button with thumbnail preview -->
       <label class="block text-center">
-        <input type="radio" name="image" value="/images/authors/author1.jpg" required />
+        <input type="radio" name="image" value="/images/authors/boy1.jpg" required />
         <img src="/images/authors/boy1.jpg" alt="Author 1" class="w-20 h-20 object-cover rounded-md border mt-1">
         <span>Author 1</span>
       </label>
       <label class="block text-center">
-        <input type="radio" name="image" value="/images/authors/author2.jpg" required />
+        <input type="radio" name="image" value="/images/authors/boy2.jpg" required />
         <img src="/images/authors/boy2.jpg" alt="Author 2" class="w-20 h-20 object-cover rounded-md border mt-1">
         <span>Author 2</span>
       </label>
       <label class="block text-center">
-        <input type="radio" name="image" value="/images/authors/author3.jpg" required />
+        <input type="radio" name="image" value="/images/authors/girl.png" required />
         <img src="/images/authors/girl1.png" alt="Author 3" class="w-20 h-20 object-cover rounded-md border mt-1">
         <span>Author 3</span>
       </label>
       <label class="block text-center">
-        <input type="radio" name="image" value="/images/authors/author3.jpg" required />
+        <input type="radio" name="image" value="/images/authors/girl2.jpg" required />
         <img src="/images/authors/girl2.jpg" alt="Author 3" class="w-20 h-20 object-cover rounded-md border mt-1">
         <span>Author 4</span>
       </label>
       <label class="block text-center">
-        <input type="radio" name="image" value="/images/authors/author3.jpg" required />
+        <input type="radio" name="image" value="/images/authors/girl3.jpg" required />
         <img src="/images/authors/girl3.jpg" alt="Author 3" class="w-20 h-20 object-cover rounded-md border mt-1">
         <span>Author 5</span>
       </label>
       <label class="block text-center">
-        <input type="radio" name="image" value="/images/authors/author3.jpg" required />
+        <input type="radio" name="image" value="/images/authors/mark-dinn.jpg" required />
         <img src="/images/authors/mark-dinn.jpg" alt="Author 3" class="w-20 h-20 object-cover rounded-md border mt-1">
         <span>Author 6</span>
       </label>
       <label class="block text-center">
-        <input type="radio" name="image" value="/images/authors/author3.jpg" required />
+        <input type="radio" name="image" value="/images/authors/john-doe.jpg" required />
         <img src="/images/authors/john-doe.jpg" alt="Author 3" class="w-20 h-20 object-cover rounded-md border mt-1">
         <span>Author 7</span>
       </label>
@@ -128,8 +128,8 @@ ${formData.longdescription}`;
       });
 
       if (response.ok) {
-        alert("File created successfully!");
-      } else {
+        window.location.href = "/";
+            } else {
         alert("Failed to create file");
       }
     } catch (error) {
