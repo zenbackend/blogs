@@ -16,11 +16,6 @@ export default defineConfig({
   image: {
     service: squooshImageService(),
   },
-  vite: {
-    define: {
-      'process.env': process.env,
-    },
-  },
   integrations: [
     react(),
     sitemap(),
