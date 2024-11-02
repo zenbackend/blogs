@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "ZenBackend Blogs",
+    "title": "ZenBackend",
     "base_url": "https://blogs.jeldiserve.site",
     "base_path": "/",
     "trailing_slash": false,
