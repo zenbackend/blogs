@@ -43,12 +43,9 @@
 </form>
 
 <script type="module">
-  import dotenv from 'dotenv';
-  dotenv.config();
-
   const repoOwner = "zenBackend";
   const repoName = "blogs";
-  const token = process.env.GITHUB_TOKEN;
+  const token = "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";
 
   document.querySelector("#author-form").addEventListener("submit", async (event) => {
     event.preventDefault();
